@@ -1,0 +1,17 @@
+<div id="ninj-container">
+  <form id="search">
+    <label>Enter your latitude:</label>
+    <input type="text" [(ngModel)]="lat" name="lat" placeholder="latitude">
+    <label>Enter your longitude:</label>
+    <input type="text" [(ngModel)]="lng" name="lng" placeholder="longitude">
+    <input type="submit" value="Find Ninjas" (click)="search(lat, lng)">
+  </form>
+  <ul *ngIf="ninjas">
+    <li *ngFor="let ninja of ninjas">
+      <span class="{{ninja.obj.available}}"></span>
+      <span class="name">{{ninja.obj.name}}</span>
+      <span class="rank">{{ninja.obj.rank}}</span>
+      <span class="dist">{{ floor(ninja.dis, 1000) }}km</span>
+    </li>
+  </ul>
+</div>
